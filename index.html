@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
+  <head>
+    <link rel="stylesheet" type='text/css' href="style.css">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+      h1.register{width:100%; margin:0; padding:0; text-align: center;}
+      input.form{width:35%; height: 25px;
+
+        border: none;
+        background: none;
+        outline: none;
+        color: #555;
+        align-items: center;
+        display: inline-flex;
+        box-shadow: inset 8px 8px 8px #cbced1;
+        inset -8px -8px 8px #ffffff;
+        box-shadow: inset 8px 8px 8px #cbced1,
+        inset -8px -8px 8px #ffffff;
+        cursor: pointer;
+        transition: all 0.6s;
+
+      }
+      textarea{width:35%; height: 50px;
+
+        border: none;
+        background: none;
+        outline: none;
+        color: #555;
+        align-items: center;
+        display: inline-flex;
+        box-shadow: inset 8px 8px 8px #cbced1;
+        inset -8px -8px 8px #ffffff;
+        box-shadow: inset 8px 8px 8px #cbced1,
+        inset -8px -8px 8px #ffffff;
+        cursor: pointer;
+        transition: all 0.6s;
+
+
+      }
+      input.submit{margin-left:25%; width:20%; height:30px;
+
+        border: none;
+        background: none;
+        outline: none;
+        color: #555;
+        display: block;
+        background: #ecf0f3;
+        box-shadow: 13px 13px 20px #cbced1,
+        13px 13px 20px #cbced1;
+        color: #5e17eb;
+        text-align: center;
+        display: inline-block;
+        box-sizing: border-box;
+        box-shadow: inset 8px 8px 8px #cbced1,
+        inset -8px -8px 8px #ffffff;
+        cursor: pointer;
+        transition: all 0.6s;
+
+
+      }
+      div.valid{margin-left: 40%; font-size: 15px; color: red;}
+      div.label{margin-left:10%; width:30%; float: left;}
+      @media screen and (max-width: 800px) {
+        div.label{margin-left:10%; width:50%; float: left;}
+        textarea{margin-left:10%; width:50%; float: left;}
+
+        input.form{margin-left:10%; width:50%; height: 20px;
+
+          align-items: center;
+          display: inline-flex;
+          box-shadow: inset 8px 8px 8px #cbced1;
+          inset -8px -8px 8px #ffffff;
+          cursor: pointer;
+          transition: all 0.6s;
+
+
+        }
+        div.valid{margin-left: 10%;}
+      }
+
+
+
+
+      input.submit:hover {
+        color: #fff;
+        background: #ff5752;
+        box-shadow: 5px 5px 7px #cbced1,
+        5px 5px 7px #cbced1;
+        box-shadow: inset none,
+        inset none;
+        transform: scale(1.07, 1.07);
+      }
+
+      input:hover {
+        color: black;
+        background: #ccccff;
+        box-shadow: none;
+        box-shadow: inset none,
+        inset none;
+        transform: scale(1.1, 1.1);
+      }
+
+      .bdy{
+        display: block;
+        color: #5e17eb;
+        background: #ecf0f3;
+      }
+      textarea:hover {
+        color: black;
+        background: #ccccff;
+        box-shadow: none;
+        box-shadow: inset none,
+        inset none;
+        transform: scale(1.1, 1.1);
+      }
+
+    </style>
+  </head>
+  <script type="text/javascript">
+  function menuopen(){
+    if(document.getElementById('topnav').className=='topnav'){
+      document.getElementById('topnav').className='topnavshow';
+      return ;
+    }
+    document.getElementById('topnav').className='topnav';
+  }
+    function validate(id){
+      var valid=1;
+      if(id=='name' || id=='submit'){
+        var name=document.getElementById('name').value;
+        if(name.length==0){
+          document.getElementById('vname').innerHTML='Please enter a name.';
+          valid=0;
+        }
+        if(valid==1){
+          document.getElementById('vname').innerHTML='';
+        }
+      }
+      if(id=='email' || id=='submit'){
+        var email=document.getElementById('email').value;
+        if(email.length==0){
+          document.getElementById('vemail').innerHTML='Please enter an email id.';
+          valid=0;
+        }
+        else{
+          if(email.includes("@")){
+            var ar=email.split("@");
+            if(ar[1].includes(".")){
+              var ar1=ar[1].split(".");
+              if(ar1[0].length!=0 && ar1[1].length!=0){
+                valid=1
+              }
+              else{
+                document.getElementById('vemail').innerHTML='Enter a valid email id.';
+                valid=0;
+              }
+            }
+            else{
+              document.getElementById('vemail').innerHTML='Enter a valid email id.';
+              valid=0;
+            }
+          }
+          else{
+            document.getElementById('vemail').innerHTML='Enter a valid email id.';
+            valid=0
+          }
+        }
+        if(valid==1){
+          document.getElementById('vemail').innerHTML='';
+        }
+      }
+      if(id=='pass' || id=='submit'){
+        var pass1=document.getElementById('pass').value;
+        if(pass1.length<8){
+          document.getElementById('vpass').innerHTML='Password should be of minimum 8 characters';
+          valid=0;
+        }
+        if(valid==1){
+          document.getElementById('vpass').innerHTML='';
+        }
+      }
+      if(id=='repass' || id=='submit'){
+        var pass1=document.getElementById('pass').value;
+        var pass2=document.getElementById('repass').value;
+        if(pass1!=pass2){
+          document.getElementById('vrepass').innerHTML='Re-entered password does not match.';
+          valid=0;
+        }
+        if(valid==1){
+          document.getElementById('vrepass').innerHTML='';
+        }
+      }
+      if(id=='mobile' || id=='submit'){
+        var mobile=document.getElementById('mobile').value;
+        if(mobile.length!=10){
+          document.getElementById('vmobile').innerHTML='Enter a valid mobile number.';
+          valid=0;
+        }
+        else{
+          var isnum = /^\d+$/.test(mobile);
+          if(isnum==false){
+            document.getElementById('vmobile').innerHTML='Enter a valid mobile number.';
+            valid=0;
+          }
+        }
+        if(id=='address' || id=='submit'){
+          var address=document.getElementById('address').value;
+          if(address.length==0){
+            document.getElementById('vaddress').innerHTML='Please enter an address.';
+            valid=0;
+          }
+          if(valid==1){
+            document.getElementById('vaddress').innerHTML='';
+          }
+        }
+        if(valid==1){
+          document.getElementById('vmobile').innerHTML='';
+        }
+      }
+      if(id=='submit' && valid==1){
+        alert('Registration Form submitted successfully.');
+        return true;
+      }
+      if(id=='submit' && valid==0){
+        alert('Registration form filled incorrectly.');
+        return false;
+      }
+    }
+    function todaydate(){
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth()+1;
+      var yyyy = today.getFullYear();
+      if(dd<10){
+        dd='0'+dd
+      }
+      if(mm<10){
+        mm='0'+mm
+      }
+      today = yyyy+'-'+mm+'-'+dd;
+      document.getElementById("dob").setAttribute("max", today);
+    }
+  </script>
+  <body  style="background:#ecf0f3">
+    <div class="title" style="background: white">
+      <h1 style="margin:0; padding:0; font-family: 'Bebas Neue';font-size: 40px; background: white;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; font-style: italic;">
+        BooksAtResale.com
+      </h1>
+    </div>
+    <ul class="topnav1">
+      <li><img src="menu.png" height=40 onclick="menuopen();" style="float: left;"/></li>
+    </ul>
+    <ul id="topnav"class="topnav">
+      <li><a id="Homepage2" href="http://localhost/Project/home.php">Home</a></li>
+      <li><a id="Categories" href="http://localhost/Project/Categories.php">Categories</a></li>
+      <li><a id="Cart" href="http://localhost/Project/Cart.php">Cart</a></li>
+      <li><a id="Register" class="active" href="Register.html">Register</a></li>
+      <li><a id="Login" href="Login.html">Login</a></li>
+      <li><a id="Upload" href="Upload.html">Upload</a></li>
+      <li><a id="AboutUs" href="AboutUs.html">About Us</a></li>
+    </ul>
+    <div class="bdy">
+    <div class="form">
+      <font size=4>
+      <h1 class="register">Registration</h1>
+      <font size=4>
+      <form method=post action="form.php" style="font-family: Arial, Helvetica, sans-serif;">
+        <br>
+        <div class="label">Name:</div><input class='form' type="text" name="name" id="name" onblur="validate(this.id)"> <div class="valid" id="vname"></div><br>
+        <div class="label">Email ID:</div><input class='form' name="email" id="email" onblur="validate(this.id)"> <div class="valid" id="vemail"></div><br>
+        <div class="label">Password:</div><input class='form' type="password" name="password" id="pass" onblur="validate(this.id)"> <div class="valid" id="vpass"></div><br>
+        <div class="label">Re-enter Password:</div><input class='form' type="password" name="repass" id="repass" onblur="validate(this.id)"> <div class="valid" id="vrepass"></div><br>
+        <div class="label">Date of Birth</div><input class='form' type="date" name="dob" id="dob" min="1990-01-01" max="" onfocus="todaydate()"> <div class="valid" id="vdate"></div><br>
+        <div class="label">Mobile No:</div><input class='form' type="text" name="mobile" id="mobile" onblur="validate(this.id)"> <div class="valid" id="vmobile"></div><br>
+        <div class="label">Address:</div><textarea class='form' type="text" name="address" id="address" onblur="validate(this.id)"></textarea> <div class="valid" id="vaddress"></div><br>
+      <br><br>  <input class="submit" type="submit" name="submit" id="submit" value="Submit" onclick="return validate(this.id)" style="text-align: center; font-size: 90%;">
+      </form>
+    </div>
+</div>
+
+  </body>
+</html>

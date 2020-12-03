@@ -1,0 +1,28 @@
+body {margin: 0;}
+.book-img{float: left; padding: 5%;}
+.book-details{float: right; padding: 5%;}
+ul.topnav {list-style-type: none; margin: 0; padding: 0; overflow: hidden; background-color: #333; position: sticky; top: 0;}
+ul.topnavshow {list-style-type: none; margin: 0; padding: 0; overflow: hidden; background-color: #333; position: sticky; top: 0;}
+ul.topnav1 {list-style-type: none; margin: 0; padding: 0; overflow: hidden; background-color: #333; position: sticky; top: 0; display: none;}
+ul.topnav li {float: left;}
+ul.topnav1 li {float: left;}
+ul.topnav li a {display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;}
+ul.topnav li a:hover:not(.active) {background-color: #17A78C;}
+ul.topnav li a.active {background-color: #17A78C;}
+ul.topnav li.right {float: right;}
+
+ul.topnavshow li {float: left;}
+ul.topnavshow li a {display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;}
+ul.topnavshow li a:hover:not(.active) {background-color: #17A78C;}
+ul.topnavshow li a.active {background-color: #17A78C;}
+ul.topnavshow li.right {float: right;}
+
+ul.topnav1 li.right {float: right;}
+@media screen and (max-width: 600px) {
+  ul.topnav {display: none;}
+  ul.topnavshow{display: block;}
+  ul.topnavshow li {float: none;}
+  ul.topnavshow li.right{display: none;}
+  ul.topnav1 {display: block;}
+  ul.topnav1 li{height:45px;}
+}
